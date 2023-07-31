@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>About</title>
+	
+</head>
+<body>
+	<section>
+	<div class="containr" >
+		<div class="card" style="background-color: darkslategrey">
+			<div class="card-body">
+				
+				<div class="text-center">
+			     <img  style="height: 400px; width: 400px;" class="my_profile_pic" th:src="@{'/img/policy.jpg'}" alt="profile photo"/>
+		          </div>
+				
+				<h1 class="text-center" style="background-color: darkslategray; color: white;">
+					Get a Plan
+				</h1>
+				
+				<div class="text-center mt-3">
+				<a th:href="@{/user/add_contact}" class="btn btn-success  text-uppercase text-center">Subscribe policy</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	</section>
+
+
+
+
+
+</body>
+</html>

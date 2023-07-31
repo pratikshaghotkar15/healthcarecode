@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>About</title>
+	
+</head>
+<body>
+	<section>
+	<div class="card mr-3 ml-3">
+		<div class="card-body">
+			<h1 class="text-center">Update Policy</h1>
+			
+			<div class="container-fluid mt-1" >
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+						
+						<form th:action="@{/policy/update_policy}"  method="post" th:object="${policy}" class="mt-2">
+							
+							<input hidden type="text" th:value="${policy.pid}" name="pid"/>
+							
+							<div class="col-md-8">
+    							<label for="policyName" class="form-label">PolicyName</label>
+							    <select id="policyName" class="form-select" name="policyName" th:value="${policy.policyName}" required>
+							      <option selected>Choose...</option>
+							      <option>Reassure 2.0</option>
+							      <option>Health Companion</option>
+							      <option>HeartBit</option>
+							      <option>GoActive</option>
+							      <option>Health Premia</option>
+							      
+							    </select>
+						    </div>
+							
+							<div class="col-md-8">
+    							<label for="insurancefor" class="form-label">InsuranceFor</label>
+							    <select id="insurancefor" class="form-select" name="insurancefor" th:value="${policy.insurancefor}" required>
+							      <option selected>Choose...</option>
+							      <option>indivisual</option>
+							      <option>family</option>
+							    </select>
+						    </div>
+						    
+						    
+						    
+						    <div class="col-md-8 mt-3">
+    							<label for="insurancecover" class="form-label">InsuranceCover</label>
+							    <select id="insurancecover" class="form-select" name="insurancecover" th:value="${policy.insurancecover}" required>
+							      <option selected>Choose...</option>
+							      <option>5 Lakh</option>
+							      <option>7.5 Lakh</option>
+							      <option>10 Lakh</option>
+							      <option>15 Lakh</option>
+							      <option>20 Lakh</option>
+							      <option>25 Lakh</option>
+							      <option>50 Lakh</option>
+							      <option>1 crore</option>
+							    </select>
+						    </div>
+						    
+						    
+						    
+						    
+						    <div class="col-md-8 mt-3">
+    							<label for="policyperiod" class="form-label">PolicyPeriod (years)</label>
+							    <select id="policyperiod" class="form-select" name="policyperiod" th:value="${policy.policyperiod}" required>
+							      <option selected>Choose...</option>
+							      <option>1</option>
+							      <option>2</option>
+							      <option>3</option>
+							    </select>
+						    </div>
+						    
+						    
+						    
+						    
+						    <div class="col-md-8 mt-3">
+    							<label for="plan" class="form-label">Plan</label>
+							    <select id="plan" class="form-select" name="plan" th:value="${policy.plan}" required>
+							      <option selected>Choose...</option>
+							      <option>platinum</option>
+							      <option>titanium</option>
+							      <option>bronze</option>
+							    </select>
+						    </div>
+						    
+						    
+						    
+						    <div class="mb-3 form-check  mt-3">
+						    <input type="checkbox" name="safeguard" class="form-check-input" th:value="${policy.safeguard}" id="safeguard"/>
+						    <label for="safeguard">Add safeguard feature </label>
+					        </div>
+					        
+					        
+					        <div class="mb-3 form-check mt-3">
+						    <input type="checkbox" name="acutecare" class="form-check-input" th:value="${policy.acutecare}" id="acutecare"/>
+						    <label for="acutecare">Add acutecare feature </label>
+					        </div>
+					        
+					        
+					        <div class="mb-3 form-check mt-3">
+						    <input type="checkbox" name="diseasemanagement" class="form-check-input"  th:value="${policy.diseasemanagement}" id="diseasemanagement"/>
+						    <label for="diseasemanagement">Add diseasemanagement feature </label>
+					        </div>
+					        
+					        <div class="mb-3 mt-3">
+								<input type="date" name="date" />
+								
+							</div>
+					 
+						   
+													
+							<div class="container mt-2 text-center ">
+								<button class="btn btn-outline-primary">update  policy</button>
+								
+							</div>
+							
+							
+							
+						</form>
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+	</div>
+	
+	
+	
+	</section>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>About</title>
+	
+</head>
+<body>
+	<section>
+	<div class="card">
+		<div class="card-body">
+			<h1 class="text-center">Your Policies details</h1>
+			
+			
+			<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Plan</th>
+      <th scope="col">InsuranceCover</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="p :${policies}">
+      <th scope="row"  th:text="'CHC2023'+${p.pid}">1</th>
+      <td>
+		  <a th:href="@{'/policy/'+${p.pid}+'/show'}">
+		  <span th:text="${p.policyName}"></span>
+		  </a>
+	  </td>
+	  
+	  <td>
+		  
+		  <span th:text="${p.plan}"></span>
+	  </td>
+      <td >
+		 
+		  <span th:text="${p.insurancecover}" ></span>
+		 
+	  </td>
+	  
+      
+      <td>
+		  
+		   <a th:onclick="|deletePolicy(${p.pid})|"  class="btn btn-danger btn-sm" >
+			  Delete
+		  </a>
+		  
+		  
+		  <form th:action="@{'/policy/update/'+${p.pid}}" class="mt-2" method="post" >
+		  <button class="btn btn-primary btn-sm" type="submit">
+			  Update
+		  </button>
+		  </form>
+	  </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li th:if="${currentpage!=0}" class="page-item"><a th:href="@{'/policy/show_policy/'+${currentpage-1}}" class="page-link" href="#">Previous</a></li>
+    <li th:classappend="${currentpage==i-1?'active':''}" class="page-item" th:each="i :${#numbers.sequence(1,totalpage)}"><a th:href="@{'/policy/show_policy/'+${i-1}}" class="page-link" href="#"><span th:text="${i}"></span></a></li>
+    
+    <li th:if="${currentpage+1 !=totalpage}" class="page-item"><a th:href="@{'/policy/show_policy/'+${currentpage+1}}"  class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+
+		</div>
+	</div>
+	</section>
+
+
+
+
+
+</body>
+</html>

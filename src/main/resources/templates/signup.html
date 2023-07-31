@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>About</title>
+	
+</head>
+<body>
+	<section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<div class="my-card mt-2">
+				
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+					<p class="text-center" th:text="${session.message.content}"></p>
+	                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+  				</div>
+				
+				<div class="text-center">
+				<img  style="width: 90px; height: 90px;"  th:src="@{/img/s.jpg}" alt=""/>
+				</div>
+				
+				
+				
+				<form novalidate th:action="@{/do_register}" method="post" th:object="${user}">
+					
+					<div class="mb-3">
+    				<label for="name_field" class="form-label">Name</label>
+    				<input type="text" name="name" class="form-control" id="name_field" aria-describedby="emailHelp"
+    				 placeholder="Enter here" required th:value="${user.name}"
+    				 th:classappend="${#fields.hasErrors('name')?'is-invalid':''}">
+    				 
+    				<div th:each="e :${#fields.errors('name')}" th:text="${e}" class="invalid-feedback">
+                    </div>
+ 				    </div>
+ 				    
+ 				    
+ 				    
+ 				    <div class="mb-3">
+    				<label for="address_field" class="form-label">Address</label>
+    				<input type="text" name="address" class="form-control" id="address_field" aria-describedby="emailHelp"
+    				 placeholder="Enter here" required th:value="${user.address}"
+    				 th:classappend="${#fields.hasErrors('address')?'is-invalid':''}">
+    				 
+    				<div th:each="e :${#fields.errors('address')}" th:text="${e}" class="invalid-feedback">
+                    </div>
+ 				    </div>
+ 				    
+ 				    
+ 				    
+ 				    <div class="mb-3">
+    				<label for="phoneno_field" class="form-label">PhoneNo</label>
+    				<input type="text" name="phoneno" class="form-control" id="phoneno_field" aria-describedby="emailHelp"
+    				 placeholder="Enter here" required th:value="${user.phoneno}"
+    				 th:classappend="${#fields.hasErrors('phoneno')?'is-invalid':''}">
+    				 
+    				<div th:each="e :${#fields.errors('phoneno')}" th:text="${e}" class="invalid-feedback">
+                    </div>
+ 				    </div>
+ 				    
+ 				    
+ 				    
+ 				    
+ 				    <div class="mb-3">
+    				<label for="email_field" class="form-label">Email</label>
+    				<input type="email" name="email" class="form-control" id="email_field" aria-describedby="emailHelp"
+    				 placeholder="Enter here" required th:value="${user.email}"
+    				 th:classappend="${#fields.hasErrors('email')?'is-invalid':''}">
+    				
+    				<div th:each="e :${#fields.errors('email')}" th:text="${e}" class="invalid-feedback">
+                    </div>
+
+ 				    </div>
+ 				    
+ 				    
+ 				    
+ 				    <div class="mb-3">
+    				<label for="password_field" class="form-label">Password</label>
+    				<input type="password" name="password" class="form-control" id="password_field" 
+    				aria-describedby="emailHelp" placeholder="Enter here" required
+    				th:classappend="${#fields.hasErrors('password')?'is-invalid':''}">
+    				<div th:each="e :${#fields.errors('password')}" th:text="${e}" class="invalid-feedback">
+                    </div>
+ 				    </div>
+ 				    
+ 				    
+ 				    <div class="mb-3">
+						<label for="birthdate_field" class="form-label">Birthdate</label>
+						<input type="date" name="birthdate" class="form-control">
+					 </div>
+ 				    
+ 				    
+					 
+					 <div class="mb-3 form-check ">
+						 <input type="checkbox" name="agreement" class="form-check-input" id="agreement"/>
+						 <label for="agreement">Accept terms and conditions</label>
+					 </div>
+					 
+					 
+					 <div class="container text-center">
+						 
+						 <button class="btn bg-primary  text-white " type="submit">Submit</button>
+						 <button class="btn btn-warning" type="reset">Reset</button>
+					 </div>
+						 
+ 				    
+ 				    
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	</section>
+
+
+
+
+
+</body>
+</html>
